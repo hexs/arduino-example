@@ -71,6 +71,10 @@ void loop() {
     double f3 = 1 / (1 + pow(e, -0.5 * k));
     int val_write = 255 * ((f1 - f2) / (f3 - f2));
 
+    // \max\left(0,\min\left(1,\frac{\frac{1}{1+e^{-k\left(\frac{1}{a}x-0.5\right)}}-\frac{1}{1+e^{0.5k}}}{\frac{1}{1+e^{-0.5k}}-\frac{1}{1+e^{0.5k}}}\right)\right)
+    // a is the value of x that makes y = 1
+    // k is the slope
+    
     // Write the PWM value to one of the outputs based on the sign of diff
     if (abs(diff) < 2) {
       analogWrite(out11, 0);
